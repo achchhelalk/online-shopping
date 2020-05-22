@@ -1,19 +1,45 @@
 package net.kzm.onlineshopping.controller;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class PageController {
-	
-@RequestMapping(value = {"/","/home","/index"})
-public ModelAndView index() {
-	ModelAndView mv = new ModelAndView("page");
-	mv.addObject("greeting","Welcome To Spring frame work");
-	return mv;
+
+	@RequestMapping(value = {"/", "/home", "/index"})
+	public ModelAndView index() {
+		ModelAndView mv = new ModelAndView("page");
+		mv.addObject("greeting","Welcome To Spring frame work");	
+
+		return mv;
+	}
+
+	/*@RequestMapping(value ="/test")
+	public ModelAndView test(@RequestParam(value="greeting",required=false) String greeting) {
+		if (greeting==null) {
+			greeting="hello value is taken";
+		}
+		ModelAndView iv = new ModelAndView("page");
+		mv.addObject("greeting",greeting);	
+
+	//	return iv;
+	}
+	 */
+
+	/*@RequestMapping(value ="/test/{greeting}")
+	public ModelAndView test(@PathVariable("greeting") String greeting) {
+		if (greeting==null) {
+			greeting="hello value is taken";
+		}
+		ModelAndView pa = new ModelAndView("page");
+		mv.addObject("greeting",greeting);	
+
+		//return pa;
+		}
+		*/
 }
-}
-	
+
 
 

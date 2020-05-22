@@ -4,9 +4,9 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>online shopping</title>
 </head>
 <body>
-   ${greeting}
+    ${greeting}
 </body>
 </html>
