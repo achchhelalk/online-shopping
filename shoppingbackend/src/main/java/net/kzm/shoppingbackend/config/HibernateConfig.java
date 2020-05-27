@@ -13,59 +13,75 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-@Configuration
-@ComponentScan(basePackages= {"net.kzm.shoppingbackend.dto"})
-@EnableTransactionManagement
+//@Configuration
+//@ComponentScan(basePackages= {"net.kzm.shoppingbackend.dto"})
+//@EnableTransactionManagement
 public class HibernateConfig {
 
-	
+/*
 	//Change the DBMS as per your requirement
-		private final static String DATBASE_URL="jdbc:h2:tcp://localhost/~/onlineshopping";
-		private final static String DATBASE_DRIVER="org.h2.Driver";
-		private final static String DATBASE_DIALECT="org.hibernate.dialect.H2Dialect";
-		private final static String DATBASE_USERNAME="sa";
-		private final static String DATBASE_PASSWORD="";
-		
-		@Bean
-		public DataSource getDataSource() {
+	private final static String DATABASE_URL="jdbc:h2:tcp://localhost/~/onlineshopping";
+	//private final static String DATABASE_URL="jdbc:h2:~/test";
+	private final static String DATABASE_DRIVER="org.h2.Driver";
+	private final static String DATABASE_DIALECT="org.hibernate.dialect.H2Dialect";
+	private final static String DATABASE_USERNAME="sa";
+	private final static String DATABASE_PASSWORD="";
 
-			BasicDataSource dataSource = new BasicDataSource();
+	/*
+	@Value("${jdbc.url}")
+	private String DATABASE_URL;
+	@Value("${jdbc.driver}")
+	private String DATABASE_DRIVER;
+	@Value("${jdbc.dialect}")
+	private String DATABASE_DIALECT;
+	@Value("${jdbc.username}")
+	private String DATABASE_USERNAME;
+	@Value("${jdbc.password}")
+	private String DATABASE_PASSWORD;
+	 */
+	/*
+	@Bean
+	public DataSource getDataSource() {
 
-			dataSource.setDriverClassName(DATBASE_DRIVER);
-			dataSource.setUrl(DATBASE_URL);
-			dataSource.setUsername(DATBASE_USERNAME);
-			dataSource.setPassword(DATBASE_PASSWORD);
+		BasicDataSource dataSource = new BasicDataSource();
 
-			return dataSource;
-		}
-		
-		
-		//Session Factory Bean will be available		
-		@Bean
-		public SessionFactory getSessionFactory(DataSource dataSource) {
-			
-			LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
-			builder.addProperties(getHibernateProperties());
-			builder.scanPackages("net.kzm.shoppingbackend.dto");
-			
-			return builder.buildSessionFactory();
-		}
+		dataSource.setDriverClassName(DATABASE_DRIVER);
+		dataSource.setUrl(DATABASE_URL);
+		dataSource.setUsername(DATABASE_DIALECT);
+		dataSource.setPassword(DATABASE_PASSWORD);
 
-		//All the Hibernate properties return in these method
-		private Properties getHibernateProperties() {
-			Properties properties = new Properties();
-			properties.put("hibernate.dialect", DATBASE_DIALECT);
-			properties.put("hibernate.show_sql", "true");
-			properties.put("hibernate.format_sql", "true");
-			return properties;
-		}
-		
-		
-		@Bean
-		public HibernateTransactionManager getTransactionManagement(SessionFactory sessionFactory) {
+		return dataSource;
+	}
 
-			HibernateTransactionManager  transactionManagement = new HibernateTransactionManager(sessionFactory);
-			return transactionManagement;
-		}
-		
+*/
+	/*
+	//Session Factory Bean will be available		
+	@Bean
+	public SessionFactory getSessionFactory(DataSource dataSource) {
+
+		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
+		builder.addProperties(getHibernateProperties());
+		builder.scanPackages("net.kzm.shoppingbackend.dto");
+
+		return builder.buildSessionFactory();
+	}
+*/
+/*
+	//All the Hibernate properties return in these method
+	private Properties getHibernateProperties() {
+		Properties properties = new Properties();
+		properties.put("hibernate.dialect", DATABASE_DIALECT);
+		properties.put("hibernate.show_sql", "true");
+		properties.put("hibernate.format_sql", "true");
+		return properties;
+	}
+
+
+	@Bean
+	public HibernateTransactionManager getTransactionManagement(SessionFactory sessionFactory) {
+
+		HibernateTransactionManager  transactionManagement = new HibernateTransactionManager(sessionFactory);
+		return transactionManagement;
+	}
+*/
 }

@@ -1,5 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd
+  http://www.springframework.org/schema/beans 
+   http://www.springframework.org/schema/beans/spring-beans.xsd">
   <modelVersion>4.0.0</modelVersion>
   <groupId>net.kzm</groupId>
   <artifactId>onlineshopping</artifactId>
@@ -9,7 +11,8 @@
   <url>http://maven.apache.org</url>
   <properties>
   <javaee.version>7.0</javaee.version>
-  <spring.version>4.3.6.RELEASE</spring.version>
+  <spring.version>5.2.6.RELEASE</spring.version>
+  <spring.security.version>4.2.2.RELEASE</spring.security.version>
   </properties>
   <dependencies>
   <!-- Linking the backend project to front end project -->
@@ -26,23 +29,66 @@
     <version>${javaee.version}</version>
     <scope>provided</scope>
     </dependency>
-  
+
   <!-- JUNIT -->
     <dependency>
       <groupId>junit</groupId>
       <artifactId>junit</artifactId>
-      <version>3.8.1</version>
+      <version>4.12</version>
       <scope>test</scope>
     </dependency>
     
     <!-- Spring  -->
     
-  <dependency>
-    <groupId>org.springframework</groupId>
-    <artifactId>spring-webmvc</artifactId>
-    <version>${spring.version}</version>
-   </dependency>
-  
+ 	<!-- SPRING -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		
+		
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<!-- Spring Webflow -->
+		<dependency>
+	        <groupId>org.springframework.webflow</groupId>
+	        <artifactId>spring-webflow</artifactId>
+	        <version>2.4.4.RELEASE</version>
+	    </dependency>
+	    
+	     <!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-taglibs</artifactId>
+			<version>${spring.security.version}</version>
+		</dependency>
+		<dependency>
+   <groupId>org.hibernate</groupId>
+   <artifactId>hibernate-core</artifactId>
+   <version>5.2.7.Final</version>
+  </dependency>
    <!-- JSTL -->
     
   <dependency>

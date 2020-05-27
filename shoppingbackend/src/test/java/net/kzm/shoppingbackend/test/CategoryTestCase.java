@@ -9,36 +9,34 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
-import net.kzm.shoppingbackend.dao.CategoryDAO;
-import net.kzm.shoppingbackend.dto.Category;
+import net.kzm.shoppingbackend.dao.TestCategoryDAO;
+import net.kzm.shoppingbackend.dto.TestCategory;
+
 
 public class CategoryTestCase {
 
 	private static AnnotationConfigApplicationContext context;
 
 
-	private static CategoryDAO categoryDAO;
+	private static TestCategoryDAO testcategoryDAO;
 
 
-	private Category category;
+	private TestCategory testcategory;
 
 
 	@BeforeClass
 	public static void init() {
 		context = new AnnotationConfigApplicationContext();
-
-		try {
+	//	System.out.println("SessionFactory"+sessionFactory.getCurrentSession().get(TestCategory.class, Integer.valueOf(1)));
+	
 			context.scan("net.kzm.shoppingbackend");
-			//context.refresh();
-			System.out.println("Track:"+categoryDAO);
-			categoryDAO = (CategoryDAO)context.getBean("categoryDAO");
-		}
-		catch(Exception ex) {
-			System.out.println("Track:"+ex);
-		}
+			context.refresh();
+			System.out.println("Track:"+testcategoryDAO);
+			testcategoryDAO = (TestCategoryDAO)context.getBean("testcategoryDAO");
+		
 	}
 
-
+	/*
 	@Test
 	public void testAddCategory() {
 
@@ -60,23 +58,24 @@ public class CategoryTestCase {
 
 	}
 
-
-	/*	@Test
+	 */
+/*
+	@Test
 	public void testGetCategory() {
 
-		category = categoryDAO.get(3);
+		tcategory = tcategoryDAO.get(1);
 
 
-		assertEquals("Successfully fetched a single category from the table!","Television",category.getName());
+		assertEquals("Successfully fetched a single category from the table!","Television",tcategory.getName());
 
 
 	}
-	 */
-
-	/*	@Test
+*/
+	/*
+	@Test
 	public void testUpdateCategory() {
 
-		category = categoryDAO.get(3);
+		category = categoryDAO.get(12);
 
 		category.setName("TV");
 
@@ -84,28 +83,30 @@ public class CategoryTestCase {
 
 
 	}
-	 */
 
-	/*	@Test
+	 */
+/*
+	@Test
 	public void testDeleteCategory() {
 
-		category = categoryDAO.get(3);		
+		category = categoryDAO.get(13);		
 		assertEquals("Successfully deleted a single category in the table!",true,categoryDAO.delete(category));
 
 
 	}
-	 */	
-	/*	
+
+*/
+	
 	@Test
 	public void testListCategory() {
 
-		assertEquals("Successfully fetched the list of categories from the table!",3,categoryDAO.list().size());
+		assertEquals("Successfully fetched the list of categories from the table!",1,testcategoryDAO.list().size());
 
 
 	}
 
-	 */
-	/*	
+
+/*	
 	@Test
 	public void testCRUDCategory() {
 
@@ -145,5 +146,5 @@ public class CategoryTestCase {
 
 
 	}
-	 */
+	*/
 }
